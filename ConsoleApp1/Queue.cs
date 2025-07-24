@@ -1,23 +1,5 @@
-﻿using System;
-
-namespace HelloWorld
+﻿namespace HelloWorld
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Queue queue = new Queue(5);
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            Console.WriteLine(queue.Dequeue());
-            queue.Enqueue(30);
-            queue.Enqueue(40);
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-        }
-    }
-
     class Queue
     {
         int front = -1, rear = -1;
