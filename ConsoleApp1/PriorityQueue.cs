@@ -5,6 +5,8 @@ namespace HelloWorld
         LinkedList<int> list1 = new LinkedList<int>();
         LinkedList<int> list2 = new LinkedList<int>();
         LinkedList<int> list3 = new LinkedList<int>();
+        Dictionary<int, int> dict1 = new Dictionary<int, int>();
+
         public void Enqueue(int value, int p)
         {
             if (p == 1)

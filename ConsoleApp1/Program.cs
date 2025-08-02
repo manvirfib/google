@@ -1,36 +1,24 @@
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Permissions;
+
 namespace HelloWorld
 {
     class Program
     {
         static void Main(string[] args)
         {
-            QueueUsing2Stacks queue = new QueueUsing2Stacks();
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue()); // Should print "List is empty" and return -
+            Tree tree = new Tree();
+            tree.Create();
+            tree.PreOrder(tree.root);
+
+            tree.IPreOrder(tree.root);
+            Console.WriteLine();
+            tree.InOrder(tree.root);
+            Console.WriteLine();
+            tree.IInOrder(tree.root);
+            Console.WriteLine();
+            tree.PostOrder(tree.root);
+            tree.LevelOrder(tree.root);
         }
     }
 }
