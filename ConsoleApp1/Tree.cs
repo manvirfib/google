@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace HelloWorld
 {
     class TNode
@@ -113,6 +115,44 @@ namespace HelloWorld
                 PreOrder(node.left);
                 PreOrder(node.right);
                 Console.Write(node.value + " ");
+            }
+        }
+
+        public int count = 0;
+
+        public int CountNodes(TNode root)
+        {
+            if (root == null) return 0;
+            return CountNodes(root.left) + CountNodes(root.right) + 1;
+        }
+
+        public int HeightOfTree(TNode root)
+        {
+            if (root == null) return 0;
+            int x = HeightOfTree(root.left);
+            int y = HeightOfTree(root.right);
+            if (x > y)
+            {
+                return x + 1;
+            }
+            else
+            {
+                return y + 1;
+            }
+        }
+
+        public int CountLeafNodes(TNode temp)
+        {
+            if (temp == null) return 0;
+            int x = CountLeafNodes(temp.left);
+            int y = CountLeafNodes(temp.right);
+            if (temp.left == null && temp.right == null)
+            {
+                return x + y + 1;
+            }
+            else
+            {
+                return x + y;
             }
         }
 

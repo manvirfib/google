@@ -1,6 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Permissions;
-
 namespace HelloWorld
 {
     class Program
@@ -19,6 +16,11 @@ namespace HelloWorld
             Console.WriteLine();
             tree.PostOrder(tree.root);
             tree.LevelOrder(tree.root);
+
+            Console.WriteLine();
+            Console.WriteLine(tree.HeightOfTree(tree.root));
+            Console.WriteLine(tree.CountNodes(tree.root));
+            Console.WriteLine(tree.CountLeafNodes(tree.root));
         }
     }
 }
