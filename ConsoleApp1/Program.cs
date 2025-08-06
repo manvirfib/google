@@ -1,26 +1,20 @@
+using System.IO.Compression;
+
 namespace HelloWorld
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Tree tree = new Tree();
-            tree.Create();
-            tree.PreOrder(tree.root);
+            BST bTree = new BST();
+            bTree.Insert(10);
+            bTree.Insert(5);
+            bTree.Insert(20);
+            bTree.Insert(8);
+            bTree.Insert(30);
 
-            tree.IPreOrder(tree.root);
-            Console.WriteLine();
-            tree.InOrder(tree.root);
-            Console.WriteLine();
-            tree.IInOrder(tree.root);
-            Console.WriteLine();
-            tree.PostOrder(tree.root);
-            tree.LevelOrder(tree.root);
-
-            Console.WriteLine();
-            Console.WriteLine(tree.HeightOfTree(tree.root));
-            Console.WriteLine(tree.CountNodes(tree.root));
-            Console.WriteLine(tree.CountLeafNodes(tree.root));
+            bTree.Inorder();
+            Console.WriteLine(bTree.Search(99)?.value);
         }
     }
 }
