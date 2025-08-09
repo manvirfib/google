@@ -6,6 +6,8 @@ namespace HelloWorld
     {
         public int value;
         public TNode left, right;
+
+        public int height = 0;
     }
 
     class Tree
