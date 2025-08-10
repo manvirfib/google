@@ -16,17 +16,17 @@ namespace HelloWorld
         public delegate int TestDelegate(int x, int y);
         static void Main(string[] args)
         {
-            AVL bTree = new AVL();
-            // // bTree.Insert(10);
-            // // bTree.Insert(5);
-            // // bTree.Insert(20);
-            // // bTree.Insert(8);
-            // // bTree.Insert(30);
+            MaxHeap maxHeap = new MaxHeap();
 
-            bTree.RInsert(bTree.root, 30);
-            bTree.RInsert(bTree.root, 20);
-            bTree.RInsert(bTree.root, 10);
-            Console.WriteLine(bTree.GetHeight(bTree.root));
+            maxHeap.Insert(10);
+            maxHeap.Insert(20);
+            maxHeap.Insert(30);
+            maxHeap.Insert(25);
+            maxHeap.Insert(5);
+            maxHeap.Insert(40);
+            maxHeap.Insert(35);
+
+            maxHeap.display();
         }
     }
 }
