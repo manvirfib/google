@@ -1,12 +1,9 @@
-using System.Reflection.Metadata.Ecma335;
-using System.Xml.Serialization;
-
 namespace HelloWorld
 {
     class MaxHeap
     {
         List<int> arr = new List<int>();
-        int dIndex = 1;
+        public int dIndex = 1;
         public void Insert(int val)
         {
             arr.Add(val);
@@ -31,14 +28,16 @@ namespace HelloWorld
         public int delete()
         {
             var diff = arr.Count - dIndex;
-            int temp = arr[diff];
-            arr[diff] = arr[0];
-            arr[0] = temp;
-
+            if (diff > 1)
+            {
+                int temp = arr[diff];
+                arr[diff] = arr[0];
+                arr[0] = temp;
+            }
             var cur = 0;
             var j = 2 * cur + 1;
 
-            while (j < diff)
+            while (j < (diff - 1))
             {
                 if (arr[j] < arr[j + 1])
                     j++;
@@ -50,7 +49,13 @@ namespace HelloWorld
                     cur = j;
                     j = 2 * cur + 1;
                 }
+                else
+                {
+                    break;
+                }
             }
+
+            dIndex++;
 
             return arr[diff];
         }

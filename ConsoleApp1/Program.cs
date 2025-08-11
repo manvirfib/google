@@ -26,7 +26,16 @@ namespace HelloWorld
             maxHeap.Insert(40);
             maxHeap.Insert(35);
 
+            Console.Write(maxHeap.delete() + " ");
+            Console.Write(maxHeap.delete() + " ");
+            Console.Write(maxHeap.delete() + " ");
+            Console.Write(maxHeap.delete() + " ");
+            Console.Write(maxHeap.delete() + " ");
+            Console.Write(maxHeap.delete() + " ");
+            Console.WriteLine(maxHeap.delete() + " ");
+
             maxHeap.display();
+            // Console.Write(maxHeap.delete());
         }
     }
 }
