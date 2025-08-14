@@ -1,41 +1,24 @@
 namespace HelloWorld
 {
-    class Cacl
-    {
-        public int add(int x, int y)
-        {
-            return x + y;
-        }
-        public int subtract(int x, int y)
-        {
-            return x - y;
-        }
-    }
     class Program
     {
-        public delegate int TestDelegate(int x, int y);
         static void Main(string[] args)
         {
-            MaxHeap maxHeap = new MaxHeap();
+            int[,] graph = new int[,] {
+                { 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 1, 1, 0, 0, 0 },
+                { 0, 1, 0, 0, 1, 0, 0 },
+                { 0, 1, 0, 0, 1, 0, 0 },
+                { 0, 0, 1, 1, 0, 1, 1 },
+                { 0, 0, 0, 0, 1, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0 }
+            };
 
-            maxHeap.Insert(10);
-            maxHeap.Insert(20);
-            maxHeap.Insert(30);
-            maxHeap.Insert(25);
-            maxHeap.Insert(5);
-            maxHeap.Insert(40);
-            maxHeap.Insert(35);
+            BFS bfs = new BFS();
+            bfs.Run(5, graph);
 
-            Console.Write(maxHeap.delete() + " ");
-            Console.Write(maxHeap.delete() + " ");
-            Console.Write(maxHeap.delete() + " ");
-            Console.Write(maxHeap.delete() + " ");
-            Console.Write(maxHeap.delete() + " ");
-            Console.Write(maxHeap.delete() + " ");
-            Console.WriteLine(maxHeap.delete() + " ");
-
-            maxHeap.display();
-            // Console.Write(maxHeap.delete());
+            DFS dfs = new DFS(graph);
+            dfs.Run(4);
         }
     }
 }
