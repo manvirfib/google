@@ -5,7 +5,7 @@ namespace HelloWorld
         int[] parent;
         public DisjointSubset(int nodes)
         {
-            parent = new int[nodes + 2];
+            parent = new int[nodes + 1];
 
             Array.Fill(parent, -1);
         }
@@ -34,13 +34,13 @@ namespace HelloWorld
         }
     }
 
-    class Krushkal
+    class Kruskal
     {
         int[,] edges;
         int nodes;
         bool[] selected;
         DisjointSubset ds;
-        public Krushkal(int[,] edges, int nodes)
+        public Kruskal(int[,] edges, int nodes)
         {
             this.edges = edges;
             this.nodes = nodes;
@@ -63,13 +63,10 @@ namespace HelloWorld
                 {
                     cost += edges[i, 2];
                     edgesCount++;
-                    selected[i] = true;
                     ds.Union(u, v);
                 }
-                else
-                {
-                    selected[i] = true;
-                }
+
+                selected[i] = true;
             }
 
             return cost;

@@ -31,7 +31,7 @@ namespace HelloWorld
 
             int nodes = 7;
 
-            Krushkal kr = new Krushkal(items, nodes);
+            Kruskal kr = new Kruskal(items, nodes);
 
             Console.WriteLine(kr.FindMST());
         }
