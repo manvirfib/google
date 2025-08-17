@@ -11,6 +11,11 @@ namespace HelloWorld
         }
         public void Union(int u, int v)
         {
+            u = FindParent(u);
+            v = FindParent(v);
+
+            if (u == v) return;
+            
             if (parent[u] > parent[v])
             {
                 parent[v] = parent[v] + parent[u];
@@ -25,12 +30,8 @@ namespace HelloWorld
 
         public int FindParent(int x)
         {
-            while (parent[x] > 0)
-            {
-                x = parent[x];
-            }
-
-            return x;
+            if (parent[x] < 0) return x;
+            return parent[x] = FindParent(parent[x]);
         }
     }
 
