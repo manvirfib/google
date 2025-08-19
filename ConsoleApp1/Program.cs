@@ -56,7 +56,7 @@ namespace HelloWorld
                 { 3, 1 },
                 { 8, 2 }
             };
-            Intknapsack knap = new Intknapsack(arr);
+            Intknapsack knap = new Intknapsack(arr, 4, 5);
             Console.WriteLine(knap.CalculateOptimalSolution(4, 5));
         }
     }
