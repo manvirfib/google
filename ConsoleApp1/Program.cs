@@ -58,6 +58,9 @@ namespace HelloWorld
             };
             Intknapsack knap = new Intknapsack(arr, 4, 5);
             Console.WriteLine(knap.CalculateOptimalSolution(4, 5));
+
+            LCS lCS = new LCS("ace", "abcde");
+            Console.WriteLine(lCS.FindLongestSubseq());
         }
     }
 }
