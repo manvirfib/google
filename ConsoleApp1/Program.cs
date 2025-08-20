@@ -61,6 +61,7 @@ namespace HelloWorld
 
             LCS lCS = new LCS("ace", "abcde");
             Console.WriteLine(lCS.FindLongestSubseq());
+            Console.WriteLine(lCS.Sequence());
         }
     }
 }

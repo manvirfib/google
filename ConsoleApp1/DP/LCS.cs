@@ -28,7 +28,35 @@ namespace HelloWorld
             }
 
             return dp[s1.Length, s2.Length];
-            
+
+        }
+
+        public string Sequence()
+        {
+            int i = s1.Length, j = s2.Length;
+            string str = "";
+            while (i > 0)
+            {
+                while (j > 0)
+                {
+                    if (dp[i - 1, j] != dp[i, j] && dp[i, j - 1] != dp[i, j])
+                    {
+                        str = s1[i - 1] + str;
+                        i--;
+                        j--;
+                    }
+                    else if (dp[i - 1, j] == dp[i, j])
+                    {
+                        i--;
+                    }
+                    else
+                    {
+                        j--;
+                    }
+                }
+            }
+
+            return str;
         }
     }
 }
