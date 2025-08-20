@@ -62,6 +62,10 @@ namespace HelloWorld
             LCS lCS = new LCS("ace", "abcde");
             Console.WriteLine(lCS.FindLongestSubseq());
             Console.WriteLine(lCS.Sequence());
+
+            int[] A = { 4, -5, 8, -2, -1, 7, -6 };
+            MaximumSubSum maximumSub = new MaximumSubSum(A);
+            Console.WriteLine(maximumSub.FindSubSum());
         }
     }
 }
