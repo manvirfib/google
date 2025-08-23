@@ -1,11 +1,11 @@
 namespace HelloWorld
 {
-    class Backtracking
+    class Permutation
     {
         bool[] arr;
         string input;
         char[] result;
-        public Backtracking(string input)
+        public Permutation(string input)
         {
             this.input = input;
             arr = new bool[input.Length];
