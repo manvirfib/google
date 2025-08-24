@@ -1,9 +1,25 @@
 namespace HelloWorld
 {
+    class Abc
+    {
+        public void stablish()
+        {
+            Console.WriteLine();
+        }
+    }
+    class Bcn : Abc
+    {
+        public void Gen()
+        {
+            
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            Abc abc = new Bcn();
+            
             int[,] arr = {
                 {0, 1, 1, 1, 0, 1, 1, 1}, //0
                 {0, 1, 1, 1, 0, 1, 1, 1},//1
