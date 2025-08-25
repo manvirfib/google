@@ -21,7 +21,7 @@ public class GroupAnagram
             dict[key].Add(word);
         }
 
-        return new List<IList<string>>(dict.Values);
+        return [.. dict.Values];
     }
 }
 
