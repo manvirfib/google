@@ -1,0 +1,1 @@
+Generally works when array is sorted or when dealing with subarrays/substrings
