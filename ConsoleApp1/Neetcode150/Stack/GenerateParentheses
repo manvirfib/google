@@ -1,0 +1,26 @@
+public class GenerateParenthesisSolution {
+    public List<string> GenerateParenthesis(int n) {
+        var result = new List<string>();
+        Backtrack(new StringBuilder(), 0, 0, n, result);
+        return result;
+    }
+
+    private void Backtrack(StringBuilder sb, int open, int close, int n, List<string> result) {
+        if (sb.Length == n * 2) {
+            result.Add(sb.ToString());
+            return;
+        }
+
+        if (open < n) {
+            sb.Append('(');
+            Backtrack(sb, open + 1, close, n, result);
+            sb.Length--; // backtrack
+        }
+
+        if (close < open) {
+            sb.Append(')');
+            Backtrack(sb, open, close + 1, n, result);
+            sb.Length--; // backtrack
+        }
+    }
+}
