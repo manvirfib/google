@@ -7,7 +7,7 @@ public class KokoEatingBananas {
         int i = 1, j = maxValue;
         while(i <= j){
             int mid = (i + j)/2;
-            int CurTotalHours = 0;
+            long CurTotalHours = 0; //IMP-should be long
             foreach(var pile in piles){
                 CurTotalHours += (int)Math.Ceiling((double)pile/mid);
             }
