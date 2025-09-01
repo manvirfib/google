@@ -1,4 +1,4 @@
-public class Solution {
+public class SearchFirstAndLast {
     public int[] SearchRange(int[] nums, int target) {
         var lower = SearchLowerBound(nums, target);
         if(lower == nums.Length || nums[lower] != target)   return new int[]{ -1, -1 };
