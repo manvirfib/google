@@ -1,7 +1,6 @@
 //Inventory System
 class FenwickTree
 {
-    int[] nums;
     int[] bit;
     int size;
     public FenwickTree(int len)

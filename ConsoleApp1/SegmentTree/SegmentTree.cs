@@ -1,8 +1,8 @@
-class SegmentTree
+class SegmentTree2
 {
     int[] nums;
     int[] segment;
-    public SegmentTree(int[] nums)
+    public SegmentTree2(int[] nums)
     {
         this.nums = nums;
         segment = new int[4 * nums.Length];

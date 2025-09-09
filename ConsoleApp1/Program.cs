@@ -1,3 +1,4 @@
+using SegmentTree;
 namespace HelloWorld
 {
     class Abc
@@ -11,7 +12,7 @@ namespace HelloWorld
     {
         public void Gen()
         {
-            
+
         }
     }
     class Program
@@ -50,18 +51,26 @@ namespace HelloWorld
 
             // SudokuSolver sd = new SudokuSolver(A);
 
-            int[] segArr = { 8, 2, 5, 1, 4, 5, 3, 9, 6, 10 };
-            SegmentTree segmentTree = new SegmentTree(segArr);
-            Console.WriteLine(segmentTree.MaxBetween(3, 4));
+            // int[] segArr = { 8, 2, 5, 1, 4, 5, 3, 9, 6, 10 };
+            // SegmentTree2 segmentTree = new SegmentTree2(segArr);
+            // Console.WriteLine(segmentTree.MaxBetween(3, 4));
 
-            FenwickTree inv = new FenwickTree(10);
+            // FenwickTree inv = new FenwickTree(10);
+
+            // inv.AddSupply(2, 50);
+            // Console.WriteLine(inv.Query(9));
+            // inv.AddSupply(3, 50);
+            // Console.WriteLine(inv.Query(9));
+
+            var inv = new InventorySystem(5);
 
             inv.AddSupply(2, 50);
-            Console.WriteLine(inv.Query(9));
-            inv.AddSupply(3, 50);
-            Console.WriteLine(inv.Query(9));
+            Console.WriteLine(inv.GetInventory(2)); // 50
+            Console.WriteLine(inv.GetInventory(3)); // 50
 
-
+            inv.AddDemand(1, 20);
+            Console.WriteLine(inv.GetInventory(2)); // 30 (50 - 20)
+            Console.WriteLine(inv.GetInventory(4));
         }
     }
 }
