@@ -73,19 +73,31 @@ namespace HelloWorld
             // Console.WriteLine(inv.GetInventory(4));
 
             //Heap implementation
-            MaxHeapify maxHeapify = new MaxHeapify(5);
-            maxHeapify.Enqueue(1);
-            maxHeapify.Enqueue(5);
-            maxHeapify.Enqueue(3);
-            maxHeapify.Enqueue(15);
-            maxHeapify.Enqueue(16);
+            // MaxHeapify maxHeapify = new MaxHeapify(5);
+            // maxHeapify.Enqueue(1);
+            // maxHeapify.Enqueue(5);
+            // maxHeapify.Enqueue(3);
+            // maxHeapify.Enqueue(15);
+            // maxHeapify.Enqueue(16);
 
-            Console.WriteLine(maxHeapify.Dequeue());
-            Console.WriteLine(maxHeapify.Dequeue());
-            Console.WriteLine(maxHeapify.Dequeue());
-            Console.WriteLine(maxHeapify.Dequeue());
-            Console.WriteLine(maxHeapify.Dequeue());
-            Console.WriteLine(maxHeapify.Dequeue());
+            // Console.WriteLine(maxHeapify.Dequeue());
+            // Console.WriteLine(maxHeapify.Dequeue());
+            // Console.WriteLine(maxHeapify.Dequeue());
+            // Console.WriteLine(maxHeapify.Dequeue());
+            // Console.WriteLine(maxHeapify.Dequeue());
+            // Console.WriteLine(maxHeapify.Dequeue());
+
+            // Recursion recursion = new Recursion();
+            // recursion.Test();
+
+            int[] arr = { 1, 3, 4, 5 };
+            int target = 2;
+
+            // Subsequence recursion = new Subsequence();
+            // Console.WriteLine(recursion.GetNumber(arr, target));
+
+            CombinationSum combinationSum = new CombinationSum();
+            combinationSum.GetSum(arr, 20);
         }
     }
 
