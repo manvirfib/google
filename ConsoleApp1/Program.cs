@@ -96,10 +96,62 @@ namespace HelloWorld
             // Subsequence recursion = new Subsequence();
             // Console.WriteLine(recursion.GetNumber(arr, target));
 
-            CombinationSum combinationSum = new CombinationSum();
-            combinationSum.GetSum(arr, 20);
+            // CombinationSum combinationSum = new CombinationSum();
+            // combinationSum.GetSum(arr, 20);
+
+            Solution solution = new Solution();
+
+            solution.SolveNQueens(4);
         }
     }
+
+    public class Solution {
+    int n;
+    List<List<int>> result = new List<List<int>>();
+    bool ValidSquare(int k, int j, int[] arr){
+        for(int i = 1; i < k; i++){
+            if(arr[i] == j || (arr[i] - i) == (j - k) || (arr[i] + i) == (j + k))
+                return false;
+        }
+        return true;
+    }
+
+    void PlaceNthQueen(int k, int[] arr){
+            if (k > n)
+                return;
+        for (int i = 1; i <= n; i++)
+                {
+                    if (ValidSquare(k, i, arr))
+                    {
+                        arr[k] = i;
+                        if (k == n)
+                        {
+                            result.Add(new List<int>(arr));
+                            return;
+                        }
+                        PlaceNthQueen(k + 1, arr);
+                    }
+                }
+    }
+    void display(){
+        foreach(var list in result){
+            for(int i = 1; i < list.Count; i++){
+                Console.Write(list[i]);
+            }
+            Console.WriteLine();
+        }
+    }
+    public IList<IList<string>> SolveNQueens(int n) {
+        int[] arr = new int[n + 1];
+        this.n = n;
+
+
+        PlaceNthQueen(1, arr);
+            display();
+
+        return new List<IList<string>>();
+    }
+}
 
     class MaxHeapify
     {
