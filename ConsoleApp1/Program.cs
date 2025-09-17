@@ -1,4 +1,5 @@
 using SegmentTree;
+using Graphs;
 namespace HelloWorld
 {
     class Abc
@@ -99,9 +100,12 @@ namespace HelloWorld
             // CombinationSum combinationSum = new CombinationSum();
             // combinationSum.GetSum(arr, 20);
 
-            Solution solution = new Solution();
+            // Solution solution = new Solution();
 
-            solution.SolveNQueens(4);
+            // solution.SolveNQueens(4);
+
+            Graph graphs = new Graph();
+            graphs.Input(5, 6);
         }
     }
 
