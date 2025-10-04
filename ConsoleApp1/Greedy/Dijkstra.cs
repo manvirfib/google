@@ -1,70 +1,51 @@
-namespace HelloWorld
-{
-    class Dijkstra
-    {
-        int[,] arr;
-        int[] distance;
-        bool[] selected;
-        int len = 0;
-        public Dijkstra(int[,] arr)
-        {
-            this.arr = arr;
-            len = arr.GetLength(0);
-            selected = new bool[len + 1];
-            distance = new int[len];
+using System;
+using System.Collections.Generic;
+
+class DikstraApproach {
+    int GetMin(int[] distance, bool[] visited){
+        int len = distance.Length;
+        int min = int.MaxValue;
+        int index = -1;
+        for(int i = 0; i < len; i++){
+            if(!visited[i] && distance[i] < min){
+                min = distance[i];
+                index = i;
+            }
         }
-        public void GetMinimumDistanceFromSource(int source)
-        {
-            //Source point set
-            selected[source] = true;
-            for (int j = 1; j < len; j++)
-            {
-                if (arr[source, j] >= 0)
-                {
-                    distance[j] = arr[source, j];
-                }
-                else
-                {
-                    distance[j] = int.MaxValue;
-                }
-            }
-            //end
+        
+        return index;
+    }
+    public int[] dijkstra(int V, int[,] edges, int src) {
+        int[] distance = new int[V];
+        Array.Fill(distance, int.MaxValue);
+        distance[src] = 0;
+        bool[] visited = new bool[V];
+        
+        List<int[]>[] adj = new List<int[]>[V];
+        for (int i = 0; i < V; i++) adj[i] = new List<int[]>();
 
-            int count = 0;
-
-            while (count < len)
-            {
-                //Finding
-                int min = int.MaxValue;
-                int u = 0;
-                for (int j = 1; j < len; j++)
-                {
-                    if (distance[j] < min && selected[j] == false)
-                    {
-                        min = distance[j];
-                        u = j;
-                    }
-                }
-
-                selected[u] = true;
-
-                //Do relaxation of u (means update the connected edges distance of u)
-                for (int v = 1; v < len; v++)
-                {
-                    if (arr[u, v] >= 0 && distance[v] > (distance[u] + arr[u, v]))
-                    {
-                        distance[v] = distance[u] + arr[u, v];
-                    }
-                }
-                count++;
-            }
-
-            Console.WriteLine("********************Distances********************");
-            for (int i = 1; i < len; i++)
-            {
-                Console.WriteLine(distance[i]);
-            }
-            Console.WriteLine("********************Distances********************");
+        int len = edges.GetLength(0);
+        
+        for (int i = 0; i < len; i++) {
+            adj[edges[i, 0]].Add(new int[] { edges[i, 1], edges[i, 2] });
+            adj[edges[i, 1]].Add(new int[] { edges[i, 0], edges[i, 2] }); // undirected
         }
+        
+        int length = 0;
+        
+        while(length <= V){
+            int val = GetMin(distance, visited);
+            if(val == -1) break;
+            visited[val] = true;
+            var list = adj[val];
+            for(int i = 0; i < list.Count; i++){
+                if((distance[val] + list[i][1]) < distance[list[i][0]]){
+                    distance[list[i][0]] = distance[val] + list[i][1];
+                }
+            }
+            length++;
+        }
+        
+        return distance;
     }
 }
