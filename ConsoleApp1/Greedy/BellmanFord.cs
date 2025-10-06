@@ -40,3 +40,6 @@ public class BellmanFordAlgorithm
         return distance;
     }
 }
+
+//This algorithm even works for negative edges (Dikstra does not work thats why Bellman is used).
+//Single source shortest path
