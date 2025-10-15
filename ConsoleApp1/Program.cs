@@ -36,34 +36,17 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Operations operations = new Operations();
-            var input = new List<Employee>();
-
-            input.Add(new Employee()
-            {
-                Id = 1,
-                Department = "A",
-                Name = "aa",
-                Salary = 123
-            });
-            input.Add(new Employee()
-            {
-                Id = 2,
-                Department = "A",
-                Name = "aa",
-                Salary = 123
-            });
-            operations.GetAveragePerDepartment(input);
+            Disjoint ds = new Disjoint(7);
+            ds.Union(1, 2);
+            ds.Union(2, 3);
+            ds.Union(4, 5);
+            ds.Union(6, 7);
+            ds.Union(5, 6);
+            if (ds.FindParent(3) != ds.FindParent(7))
+                Console.WriteLine("Not same");
+            ds.Union(3, 7);
+            if (ds.FindParent(3) == ds.FindParent(7))
+                Console.WriteLine("same");
         }
     }
 }
-
-/*
-
-
-with cte as
-(
-select top(3) * from employee order by salary desc
-),
-select top(1) * from cte order by salary;
-*/
