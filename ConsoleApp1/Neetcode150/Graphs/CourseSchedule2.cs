@@ -1,12 +1,12 @@
-public class CourseSchedule {
-    public bool CanFinish(int n, int[][] pre) {
-        List<int>[] adj = new List<int>[n];
-
+public class CourseSchedule2 {
+    public int[] FindOrder(int n, int[][] pre) {
+        List<List<int>> adj = new();
         for(int i = 0; i < n; i++){
-            adj[i] = new List<int>();
+            adj.Add(new List<int>());
         }
 
         int[] degree = new int[n];
+        Queue<int> queue = new();
 
         foreach(var edge in pre){
             int u = edge[0];
@@ -14,7 +14,9 @@ public class CourseSchedule {
             adj[v].Add(u);
             degree[u]++;
         }
-        Queue<int> queue = new();
+
+        List<int> result = new();
+
         for(int i = 0; i < n; i++){
             if(degree[i] == 0){
                 queue.Enqueue(i);
@@ -23,6 +25,8 @@ public class CourseSchedule {
 
         while(queue.Count > 0){
             var node = queue.Dequeue();
+            result.Add(node);
+
             foreach(var neigh in adj[node]){
                 degree[neigh]--;
                 if(degree[neigh] == 0){
@@ -31,11 +35,8 @@ public class CourseSchedule {
             }
         }
 
-        for(int i = 0; i < n; i++){
-            if(degree[i] != 0)
-                return false;
-        }
+        if(result.Count != n) return new int[]{};
 
-        return true;
+        return result.ToArray();
     }
 }
