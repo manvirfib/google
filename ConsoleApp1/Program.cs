@@ -36,17 +36,13 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Disjoint ds = new Disjoint(7);
-            ds.Union(1, 2);
-            ds.Union(2, 3);
-            ds.Union(4, 5);
-            ds.Union(6, 7);
-            ds.Union(5, 6);
-            if (ds.FindParent(3) != ds.FindParent(7))
-                Console.WriteLine("Not same");
-            ds.Union(3, 7);
-            if (ds.FindParent(3) == ds.FindParent(7))
-                Console.WriteLine("same");
+            Fibbo fb = new();
+            int n = 5;
+            int[] dp = new int[n + 1];
+            Array.Fill(dp, -1);
+            dp[0] = 1;
+            dp[1] = 1;
+            Console.WriteLine("Fibbo: " + fb.fib(n, dp));
         }
     }
 }
