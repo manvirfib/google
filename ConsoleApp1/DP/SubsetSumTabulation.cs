@@ -1,4 +1,4 @@
-public class Solution
+public class SubsetSolution
 {
     int Rec(int idx, int cur, int[] arr, int[][] dp)
     {
