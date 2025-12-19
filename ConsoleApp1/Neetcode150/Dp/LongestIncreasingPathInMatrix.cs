@@ -2,7 +2,7 @@ public class LongestIncreasingPathSolution {
     int[] dirx = { 1, 0, -1, 0 };
     int[] diry = { 0, 1, 0, -1 };
     int m, n;
-    int[,] dp;
+    int[,] dp = new int[0,0];
     int Rec(int i, int j, int[][] matrix){
         int max = 0;
         if(dp[i, j] != -1) return dp[i, j];
